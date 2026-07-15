@@ -33,7 +33,7 @@ const ProduitCard: React.FC<Props> = ({
     const productTitle = language === 'fr' ? titre : titreEn
     const productDescription = language === 'fr' ? ville : villeEn
     return (
-        <div className='"flex flex-col bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl hover:scale-[1.015] h-full"'>
+        <div className='flex flex-col bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl hover:scale-[1.015] h-full'>
             {/* Carrousel Swiper pour les images */}
             <div className="relative w-full h-[220px] sm:h-[250px] md:h-[230px] xl:h-[230px] overflow-hidden">
                 <Swiper
@@ -41,9 +41,10 @@ const ProduitCard: React.FC<Props> = ({
                      spaceBetween={30}
                     centeredSlides={true}
                     autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-        }}
+                      delay: 3000,
+                      disableOnInteraction: false,
+                      pauseOnMouseEnter: false,
+                    }}
                     navigation
                     pagination={{ clickable: true }}
                     loop

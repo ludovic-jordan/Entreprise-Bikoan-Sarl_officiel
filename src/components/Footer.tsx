@@ -67,13 +67,16 @@ const Footer: React.FC = () => {
                 </div>
                 <div className=' text-sm'>
                     <h3 className='font-bold mb-2'> <b>{t.footer.followUs}</b></h3> <br />
-                    <div className='flex gap-2 '>
-                        {/* <img className='fixed-2 h-6 w-8 px-1 cursor-pointer hover:scale-150 transition duration-300' src={facebook} alt='suivez-nous par facebook' /> */}
-                        {/* <img className='fixed-2 h-6 w-8 px-1 cursor-pointer hover:scale-150 transition duration-300' src={instagram} alt='suivez-nous par instagram' /> */}
-                        {/* <img className='fixed-2 h-6 w-8 px-1 cursor-pointer hover:scale-150 transition duration-300' src={whatsapp} alt='suivez-nous par whatsapp' /> */}
-                        {/* <img className='fixed-2 h-6 w-8 px-1 cursor-pointer hover:scale-150 transition duration-300' src={linkedin} alt='suivez-nous par linkedin' /> */}
-                        {/* <img className='fixed-2 h-6 w-8 px-1 cursor-pointer hover:scale-150 transition duration-300' src={github} alt='suivez-nous par github' /> */}
-                        <img className='fixed-2 h-6 w-8 px-1 cursor-pointer hover:scale-150 transition duration-300' src={mail} alt='suivez-nous par mail' />
+                    <div className='flex gap-2 items-center'>
+                        <a
+                          href={
+                            `mailto:fofeachille@icloud.com?subject=${encodeURIComponent('Demande de contact')}&body=${encodeURIComponent("Bonjour BIKOAN Team,\n\nJe souhaite vous contacter au sujet d'une commande de chips ou de sésame. Merci de me répondre rapidement.\n\nNom :\nTéléphone :\nMessage :\n")}`
+                          }
+                          className='inline-flex items-center gap-2 hover:text-green-300 transition duration-200'
+                        >
+                          <img className='fixed-2 h-6 w-8 px-1 cursor-pointer hover:scale-150 transition duration-300' src={mail} alt='Contactez-nous par mail' />
+                          <span>{t.footer.sendMail}</span>
+                        </a>
                         <Link to={`https://www.google.com/maps/place/Entreprise+Bikoan+Sarl/@3.8967845,11.5429006,19.42z/data=!4m6!3m5!1s0x108bc50044b493df:0x4aa82d934e683fb8!8m2!3d3.8966165!4d11.5429234!16s%2Fg%2F11zcslc91y?entry=ttu&g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D`}>
                             <img className='fixed-2 h-6 w-8 px-1 cursor-pointer hover:scale-150 transition duration-300' src={localisation} alt='suivez-nous par localisation' />
                         </Link>

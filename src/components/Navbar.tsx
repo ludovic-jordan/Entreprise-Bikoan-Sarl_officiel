@@ -21,10 +21,10 @@ const Navbar: React.FC = () => {
         <>
         <header className='bg-green-500 text-white fixed top-0 w-full z-50 '>
             <div className='flex items-center justify-between px-6 py-4'>
-                <img className='h-12 w-auto' src={logo} alt="logo de la maison" />
+                <img className='h-12 w-[200px]' src={logo} alt="logo de la maison" />
                 <nav className='hidden md:flex space-x-6 text-sm items-center '>
-                    <div className='flex flex-col gap-2 md:flex-row md:items-center md:justify-end'>
-                        <label className='font-semibold text-white'>
+                    <div className='flex items-center gap-3'>
+                        <label className='font-semibold text-white hidden md:inline'>
                             {t.home.languageLabel}
                         </label>
                         <select
@@ -41,7 +41,6 @@ const Navbar: React.FC = () => {
                     <Link to={`/apropos`} className='hover:bg-green-700 rounded-lg hover:scale-110 transition duration-300'>{t.nav.apropos}</Link>
                     <Link to={`/contact`} className='hover:bg-green-700 rounded-lg hover:scale-110 transition duration-300'>{t.nav.contact}</Link>
                     <Link to={`/connexion`} className='hover:bg-green-700 rounded-lg bg-gray-600'><FaUserCircle  /></Link>
-
                 </nav>
 
                 {/* buttom to show the menu bar when ever the screen is not medium i.e large */}
@@ -49,17 +48,29 @@ const Navbar: React.FC = () => {
                  and whenever the screen size changes, FaBars is called(isOpen)  */}
                 <button onClick={ToggleMenu} className='md:hidden text-2xl '>{isOpen ? <FaTimes /> : <FaBars />} </button>
             </div>
+            
 
             {/*  isOpen is used display the content of the menu in block  when the size is mall */}
-            {isOpen && (
-                <nav className=' md:hidden bg-green-600 text-sm px-6 pb-4 pt-2 space-y-3'>
-                    <Link to={`/home`} className='block'>{t.nav.home}</Link>
-                    <Link to={`/nosproduit`} className='block'>{t.nav.nosProduits}</Link>
-                    <Link to={`/apropos`} className='block'>{t.nav.apropos}</Link>
-                    <Link to={`/contact`} className='block'>{t.nav.contact}</Link>
-                    <Link to={`/connexion`} className='block'>{t.nav.connexion}</Link>
-                </nav>
-            )}
+                                {isOpen && (
+                                <nav className=' md:hidden bg-green-600 text-sm px-6 pb-4 pt-2 space-y-3'>
+                                        <div className='flex items-center gap-2'>
+                                            <label className='font-semibold text-white'>{t.home.languageLabel}</label>
+                                            <select
+                                                value={language}
+                                                onChange={(e) => setLanguage(e.target.value as 'fr' | 'en')}
+                                                className='border rounded-xl px-3 py-2 text-sm text-black bg-white'
+                                            >
+                                                <option value='fr'>{t.home.languageFr}</option>
+                                                <option value='en'>{t.home.languageEn}</option>
+                                            </select>
+                                        </div>
+                                        <Link to={`/home`} className='block'>{t.nav.home}</Link>
+                                        <Link to={`/nosproduit`} className='block'>{t.nav.nosProduits}</Link>
+                                        <Link to={`/apropos`} className='block'>{t.nav.apropos}</Link>
+                                        <Link to={`/contact`} className='block'>{t.nav.contact}</Link>
+                                        <Link to={`/connexion`} className='block'>{t.nav.connexion}</Link>
+                                </nav>
+                        )}
         </header>
         </>
     )

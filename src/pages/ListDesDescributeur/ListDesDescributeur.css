@@ -1,0 +1,64 @@
+.ldd-section{
+  padding: 1.2rem;
+}
+.ldd-title{
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+.ldd-subtitle{
+  margin-top: 0.25rem;
+  color: #4a5568;
+}
+.ldd-row{
+  display:flex;
+  gap:1rem;
+  overflow-x:hidden;
+  padding-bottom:6px;
+  position:relative;
+}
+.ldd-scroll{
+  overflow:hidden;
+}
+.ldd-track{
+  display:flex;
+  gap:1rem;
+  animation: ldd-scroll 28s linear infinite;
+}
+.ldd-scroll:hover .ldd-track{
+  animation-play-state: paused;
+}
+@keyframes ldd-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ldd-card{
+  min-width:180px;
+  background:linear-gradient(180deg, #fff,#f7f7f7);
+  border-radius:10px;
+  padding:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  transition:transform .18s ease, box-shadow .18s ease;
+  cursor:default;
+}
+.ldd-card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
+}
+.ldd-avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#ffd54a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color:#3b3b3b;
+}
+.ldd-name{
+  font-size:0.98rem;
+  color:#222;
+}

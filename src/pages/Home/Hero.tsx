@@ -2,7 +2,7 @@ import React from 'react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper,SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
-import hero from '../../assets/Entreprise_image/m14.jpeg'
+import hero from '../../assets/Entreprise_image/m2.jpeg'
 import { AnnonceMock } from '../../lib/Mock'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
           delay: 2000,
           disableOnInteraction: false,
         }}
-        pagination={{ clickable: false }}
+        pagination={{ clickable: true }}
         navigation
         className="absolute inset-0 w-full h-full z-0 rounded-lg"
       >
@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
           </div>
         </SwiperSlide>
  
-        {AnnonceMock.slice(0, 3).map((nosproduit) => (
+        {AnnonceMock.slice(2, 5).map((nosproduit) => (
           <SwiperSlide key={nosproduit.id}>
             <div className="relative w-full h-full">
               <img

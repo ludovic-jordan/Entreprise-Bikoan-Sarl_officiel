@@ -1,7 +1,7 @@
 
 import {  useParams } from "react-router-dom";
 import { AnnonceMock } from "../../lib/Mock"
-import { Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { useLanguage } from "../../context/LanguageContext";
 // import mail from "../../assets/social media/logo email2.png";
@@ -24,9 +24,15 @@ const NosProduitDetail = () => {
       <div className="border rounded-lg shadow-sm p-4 md:p-6 flex flex-col gap-4 bg-white">
         {/* Swiper */}
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[Autoplay, Navigation, Pagination]}
           navigation
           pagination={{ clickable: true }}
+          centeredSlides={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: true,
+            pauseOnMouseEnter: true,
+          }}
           loop
           className="w-full h-60 sm:h-72 md:h-80 rounded overflow-hidden"
         >

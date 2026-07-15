@@ -9,6 +9,9 @@ import Contact from './pages/Contact/Contact'
 import Home from './pages/Home/Home'
 import NosProduitDetail from './pages/NosProduits/NosProduitDetail'
 import NosProduit from './pages/NosProduits/NosProduit'
+import ListDesDescributeur from './pages/ListDesDescributeur/ListDesDescributeur'
+import Entreprise from './pages/Entreprise/Entreprise'
+import Prepare from './pages/Prepare/Prepare'
 import Condition from './pages/Condition/Condition'
 import Confidentialite from './pages/Confidentialite/confidentialite'
 import Mention from './pages/Mention/Mention'
@@ -34,6 +37,9 @@ function App() {
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/nosproduit" element={<NosProduit />} />
         <Route path="/nosproduit/:id" element={<NosProduitDetail />} />
+        <Route path="/distributeurs" element={<ListDesDescributeur />} />
+        <Route path="/entreprise" element={<Entreprise />} />
+        <Route path="/preparation" element={<Prepare />} />
         <Route path="/apropos" element={<Apropos />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/condition" element={<Condition />} />
