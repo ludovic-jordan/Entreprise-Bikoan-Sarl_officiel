@@ -32,6 +32,11 @@ const NosProduit:React.FC = () => {
             textEn={a.textEn} />
         ))}
       </div>
+      <div>
+        <span>
+          
+        </span>
+      </div>
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
         {AnnonceMock.map((a) => (
           <ProduitCard
