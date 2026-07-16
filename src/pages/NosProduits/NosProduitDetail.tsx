@@ -66,7 +66,7 @@ const NosProduitDetail = () => {
         <div>
           <span>
             <p className="font-semibold">
-              {t.productDetail.contactPhone} <span className="bg-green-600 w-900 rounded-2xl cursor-pointer hover:scale-150 transition duration-300">691 185 815</span>
+              {t.productDetail.contactPhone} <span className="bg-green-600 w-900 rounded-2xl cursor-pointer hover:scale-150 transition duration-300">{t.productDetail.phone}</span>
             </p>
             <p className="font-semibold">
               {t.productDetail.contactEmailLabel} fofeachille@icloud.com

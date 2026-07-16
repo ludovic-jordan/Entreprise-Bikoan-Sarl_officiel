@@ -1,8 +1,60 @@
+import { useState, useEffect, useRef } from "react";
 import { statisticsData } from "./statisticsData";
 
 export default function Statistics() {
+  const [counts, setCounts] = useState<number[]>([0, 0, 0, 0]);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const targets = statisticsData.map((item) => item.number);
+    const duration = 2500; // 2.5 secondes
+    const startTime = Date.now();
+
+    const animateCount = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      const newCounts = targets.map((target) =>
+        Math.floor(target * progress)
+      );
+      setCounts(newCounts);
+
+      if (progress < 1) {
+        requestAnimationFrame(animateCount);
+      } else {
+        setCounts(targets);
+      }
+    };
+
+    requestAnimationFrame(animateCount);
+  }, [isVisible]);
+
   return (
-    <section className="relative overflow-hidden bg-green-500 py-24">
+    <section ref={sectionRef} className="relative overflow-hidden bg-green-500 py-24">
       <div className="absolute -left-20 -top-20 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
       <div className="absolute -bottom-24 -right-20 h-96 w-96 rounded-full bg-yellow-300/10 blur-3xl" />
 
@@ -35,7 +87,7 @@ export default function Statistics() {
                 </div>
 
                 <h3 className="text-5xl font-black text-white">
-                  {item.number}
+                  {counts[index].toLocaleString("en-US")}
                   {item.suffix}
                 </h3>
 

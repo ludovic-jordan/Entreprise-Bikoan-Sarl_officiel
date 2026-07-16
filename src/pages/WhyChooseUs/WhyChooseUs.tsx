@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { whyChooseUST } from "./WhyChooseUST";
+import { useLanguage } from "../../context/LanguageContext";
 
 
 export default function WhyChooseUsData() {
+    const { t, language } = useLanguage();
+
     return (
         <section className="py-24 bg-gradient-to-b from-white to-orange-50">
 
@@ -17,21 +20,18 @@ export default function WhyChooseUsData() {
                 >
 
                     <span className="text-orange-600 font-semibold uppercase tracking-widest">
-                        Pourquoi nous choisir ?
+                        {t.whyChooseUs.sectionTitle}
                     </span>
 
                     <h2 className="mt-4 text-4xl md:text-5xl font-bold text-gray-900">
 
-                        La qualité au cœur de chacun de nos produits
+                        {t.whyChooseUs.mainTitle}
 
                     </h2>
 
                     <p className="mt-6 max-w-3xl mx-auto text-gray-600 leading-8">
 
-                        Chez <span className="font-semibold text-orange-600">BIKOAN SARL</span>,
-                        nous mettons notre expertise au service de la fabrication de snacks
-                        savoureux, sains et de qualité afin d'offrir une expérience unique à
-                        chacun de nos consommateurs.
+                        {t.whyChooseUs.mainDesc}
 
                     </p>
 
@@ -42,6 +42,8 @@ export default function WhyChooseUsData() {
                     {whyChooseUST.map((item, index) => {
 
                         const Icon = item.icon;
+                        const title = language === 'fr' ? item.titleFr : item.titleEn;
+                        const description = language === 'fr' ? item.descriptionFr : item.descriptionEn;
 
                         return (
 
@@ -79,13 +81,13 @@ export default function WhyChooseUsData() {
 
                                 <h3 className="text-2xl font-bold mb-4">
 
-                                    {item.title}
+                                    {title}
 
                                 </h3>
 
                                 <p className="text-gray-600 leading-7">
 
-                                    {item.description}
+                                    {description}
 
                                 </p>
 

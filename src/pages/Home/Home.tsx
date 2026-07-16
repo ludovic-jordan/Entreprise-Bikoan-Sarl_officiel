@@ -26,7 +26,7 @@ export const Home: React.FC = () => {
             <h2 className='home-section-title'>{t.home.products}</h2>
             <Link to='/nosproduit' className='home-link'>{t.home.viewMore}</Link>
           </div>
-          <p className='home-section-text'>Découvrez notre gamme de chips croustillantes et de graines de sésame soigneusement sélectionnées, prêtes à régaler vos clients.</p>
+          <p className='home-section-text'>{t.nosproduit.homeIntro}</p>
           <NosProduitReview />
         </section>
 
@@ -63,16 +63,16 @@ export const Home: React.FC = () => {
           </div>
           <div className='why-choose-grid'>
             <div className='why-choose-item'>
-              <h3>Saveur unique</h3>
-              <p>Des recettes traditionnelles pour un goût irrésistible.</p>
+              <h3>{t.whyChoose.item1Title}</h3>
+              <p>{t.whyChoose.item1Text}</p>
             </div>
             <div className='why-choose-item'>
-              <h3>Distribution fiable</h3>
-              <p>Notre réseau de distributeurs assure une livraison rapide et régulière.</p>
+              <h3>{t.whyChoose.item2Title}</h3>
+              <p>{t.whyChoose.item2Text}</p>
             </div>
             <div className='why-choose-item'>
-              <h3>Qualité constante</h3>
-              <p>Chaque lot est préparé avec des ingrédients sélectionnés.</p>
+              <h3>{t.whyChoose.item3Title}</h3>
+              <p>{t.whyChoose.item3Text}</p>
             </div>
           </div>
         </section>

@@ -14,29 +14,29 @@ const Prepare: React.FC = () => {
     <section className="prep-section">
       <div className="prep-header">
         <h2 className="text-3xl font-semibold text-center align-center">{t.home.preparationTitle}</h2>
-        <p className="text-xl text-center text-gray-700">{t.home.preparationText} Les vidéos sont chargées depuis le code pour rester sous votre contrôle.</p>
+        <p className="text-xl text-center text-gray-700">{t.home.preparationText}</p>
       </div>
       <div className="prep-row">
         <div className="prep-card">
-          <h3 className="text-2xl font-semibold text-center">Sésame</h3>
-          <p className="prep-desc">Une démonstration claire des étapes de fabrication, du mélange à la cuisson, pour un produit bien doré.</p>
+          <h3 className="text-2xl font-semibold text-center">{t.prepare.chipsTitle}</h3>
+          <p className="prep-desc">{t.prepare.chipsDesc}</p>
           <div className="prep-media">
             {VIDEO_CHIPS_URL ? (
               <video controls playsInline preload="metadata" src={VIDEO_CHIPS_URL} />
             ) : (
-              <div className="prep-placeholder">Aucune vidéo configurée. Remplacez VIDEO_CHIPS_URL dans `src/pages/Prepare/Prepare.tsx`.</div>
+              <div className="prep-placeholder">{t.prepare.noVideoConfigured}</div>
             )}
           </div>
         </div>
 
         <div className="prep-card">
-          <h3 className='text-2xl font-semibold text-center'>Sésame</h3>
-          <p className="prep-desc">Une vidéo explicative du traitement et de la torréfaction du sésame pour un profil de saveur premium.</p>
+          <h3 className='text-2xl font-semibold text-center'>{t.prepare.sesameTitle}</h3>
+          <p className="prep-desc">{t.prepare.sesameDesc}</p>
           <div className="prep-media">
             {VIDEO_SESAME_URL ? (
               <video controls playsInline preload="metadata" src={VIDEO_SESAME_URL} />
             ) : (
-              <div className="prep-placeholder">Aucune vidéo configurée. Remplacez VIDEO_SESAME_URL dans `src/pages/Prepare/Prepare.tsx`.</div>
+              <div className="prep-placeholder">{t.prepare.noVideoConfigured}</div>
             )}
           </div>
         </div>

@@ -25,8 +25,8 @@ const Contact:React.FC = () => {
                     <input type="email" id="email" name="email" required placeholder={t.contact.emailPlaceholder} className='border border-gray-300 rounded-2xl h-10 w-100 p-4'/> <br />
                 </div>
                 <div className='space-y-5 gap-5'>
-                    <label htmlFor="tel" className='text-md font-bold italic'>Telephone :</label> <br />
-                    <input type="tel" id="tel" name="tel" required placeholder="Telephone" className='border border-gray-300 rounded-2xl h-10 w-100 p-4'/> <br />
+                    <label htmlFor="tel" className='text-md font-bold italic'>{t.contact.telephone}</label> <br />
+                    <input type="tel" id="tel" name="tel" required placeholder={t.contact.telephone} className='border border-gray-300 rounded-2xl h-10 w-100 p-4'/> <br />
                 </div>
                 <div className='space-y-5 gap-5'>
                     <label htmlFor="message" className='text-md font-bold italic'>{t.contact.message}</label> <br />

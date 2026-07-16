@@ -9,19 +9,19 @@ export const statisticsData = [
   },
   {
     icon: FiUsers,
-    number: 2500,
+    number: 3500,
     suffix: "+",
     label: "Clients satisfaits",
   },
   {
     icon: FiTruck,
-    number: 50,
+    number: 100,
     suffix: "+",
     label: "Revendeurs",
   },
   {
     icon: FiAward,
-    number: 8,
+    number: 10,
     suffix: "+",
     label: "Années d'expérience",
   },
