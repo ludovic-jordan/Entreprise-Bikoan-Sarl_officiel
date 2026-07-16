@@ -19,10 +19,11 @@ const NosProduitReview: React.FC = () => {
         {t.home.products}
       </motion.h2>
 
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {AnnonceMock.slice(0, 6).map((a, index) => (
           <motion.div
             key={a.id}
+            className="flex h-full"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

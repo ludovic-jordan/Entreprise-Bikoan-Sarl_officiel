@@ -1,79 +1,121 @@
-// importing pictures in to the page
-
 import React, { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import logo from '../assets/Entreprise_image/logo-removebg-preview.png'
-import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa'
 import { useLanguage } from '../context/LanguageContext'
 
-// creating a navbar of type React.FC
 const Navbar: React.FC = () => {
-  const { language, setLanguage,  } = useLanguage()
+  const { language, setLanguage, t } = useLanguage()
+  const [isOpen, setIsOpen] = useState(false)
+  const location = useLocation()
 
-    // for responsiveness, where isOpen is the main screen bar of the desktop and setting a non-defined way the user want 
-    // use the site
-    const [isOpen, setisOpen] = useState(false); // isOpen is the visual coder sreen and setisOpen is unknown(user's screen)
-    const ToggleMenu = ()  => setisOpen(!isOpen);
-    // ToggleMenu is the function call to change whan ever the is an onclick and resize the site
-    const { t } = useLanguage()
+  // Close menu on navigation
+  const handleNavClick = () => setIsOpen(false)
 
-    return (
-        <>
-        <header className='bg-green-500 text-white fixed top-0 w-full z-50 '>
-            <div className='flex items-center justify-between px-6 py-4'>
-                <img className='h-12 w-[200px]' src={logo} alt="logo de la maison" />
-                <nav className='hidden md:flex space-x-6 text-sm items-center '>
-                    <div className='flex items-center gap-3'>
-                        <label className='font-semibold text-white hidden md:inline'>
-                            {t.home.languageLabel}
-                        </label>
-                        <select
-                            value={language}
-                            onChange={(e) => setLanguage(e.target.value as 'fr' | 'en')}
-                            className='border rounded-xl px-3 py-2 text-sm text-black bg-white'
-                        >
-                            <option value='fr'>{t.home.languageFr}</option>
-                            <option value='en'>{t.home.languageEn}</option>
-                        </select>
-                    </div>
-                    <Link to={`/home`} className='hover:bg-green-700 rounded-lg hover:scale-110 transition duration-300 '>{t.nav.home}</Link>
-                    <Link to={`/nosproduit`} className='hover:bg-green-700 rounded-lg hover:scale-110 transition duration-300'>{t.nav.nosProduits}</Link>
-                    <Link to={`/apropos`} className='hover:bg-green-700 rounded-lg hover:scale-110 transition duration-300'>{t.nav.apropos}</Link>
-                    <Link to={`/contact`} className='hover:bg-green-700 rounded-lg hover:scale-110 transition duration-300'>{t.nav.contact}</Link>
-                    <Link to={`/connexion`} className='hover:bg-green-700 rounded-lg bg-gray-600'><FaUserCircle  /></Link>
-                </nav>
+  const navLinks = [
+    { to: '/home',          label: t.nav.home },
+    { to: '/nosproduit',    label: t.nav.nosProduits },
+    { to: '/apropos',       label: t.nav.apropos },
+    { to: '/contact',       label: t.nav.contact },
+  ]
 
-                {/* buttom to show the menu bar when ever the screen is not medium i.e large */}
-                {/* when the the condition says that when it is in full screen,(it is not isOpen), Fatime is called to display nothing
-                 and whenever the screen size changes, FaBars is called(isOpen)  */}
-                <button onClick={ToggleMenu} className='md:hidden text-2xl '>{isOpen ? <FaTimes /> : <FaBars />} </button>
-            </div>
-            
+  const isActive = (path: string) =>
+    location.pathname === path ? 'bg-green-700 rounded-lg px-2 py-1' : 'px-2 py-1'
 
-            {/*  isOpen is used display the content of the menu in block  when the size is mall */}
-                                {isOpen && (
-                                <nav className=' md:hidden bg-green-600 text-sm px-6 pb-4 pt-2 space-y-3'>
-                                        <div className='flex items-center gap-2'>
-                                            <label className='font-semibold text-white'>{t.home.languageLabel}</label>
-                                            <select
-                                                value={language}
-                                                onChange={(e) => setLanguage(e.target.value as 'fr' | 'en')}
-                                                className='border rounded-xl px-3 py-2 text-sm text-black bg-white'
-                                            >
-                                                <option value='fr'>{t.home.languageFr}</option>
-                                                <option value='en'>{t.home.languageEn}</option>
-                                            </select>
-                                        </div>
-                                        <Link to={`/home`} className='block'>{t.nav.home}</Link>
-                                        <Link to={`/nosproduit`} className='block'>{t.nav.nosProduits}</Link>
-                                        <Link to={`/apropos`} className='block'>{t.nav.apropos}</Link>
-                                        <Link to={`/contact`} className='block'>{t.nav.contact}</Link>
-                                        <Link to={`/connexion`} className='block'>{t.nav.connexion}</Link>
-                                </nav>
-                        )}
-        </header>
-        </>
-    )
+  return (
+    <header className="bg-green-500 text-white fixed top-0 w-full z-50 shadow-md">
+      <div className="flex items-center justify-between px-4 sm:px-6 py-3">
+        {/* Logo */}
+        <Link to="/home" onClick={handleNavClick}>
+          <img
+            className="h-10 w-auto max-w-[150px] sm:max-w-[180px] object-contain"
+            src={logo}
+            alt="Bikoan logo"
+          />
+        </Link>
+
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-4 text-sm">
+          {/* Language switcher */}
+          <select
+            value={language}
+            onChange={(e) => setLanguage(e.target.value as 'fr' | 'en')}
+            className="border rounded-lg px-2 py-1.5 text-sm text-black bg-white cursor-pointer"
+          >
+            <option value="fr">{t.home.languageFr}</option>
+            <option value="en">{t.home.languageEn}</option>
+          </select>
+
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`hover:bg-green-700 hover:scale-105 transition duration-200 rounded-lg px-2 py-1 font-medium ${isActive(link.to)}`}
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <Link
+            to="/connexion"
+            className="flex items-center gap-1 bg-white/20 hover:bg-green-700 rounded-lg px-3 py-1.5 transition duration-200 font-medium"
+          >
+            <FaUserCircle className="text-lg" />
+            <span className="hidden lg:inline">{t.nav.connexion}</span>
+          </Link>
+        </nav>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-2xl p-1 rounded-lg hover:bg-green-600 transition"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {isOpen && (
+        <nav className="md:hidden bg-green-600 px-4 pb-5 pt-3 flex flex-col gap-3 text-sm shadow-lg">
+          {/* Language switcher */}
+          <div className="flex items-center gap-2">
+            <label className="font-semibold text-white text-xs uppercase tracking-wide">
+              {t.home.languageLabel}
+            </label>
+            <select
+              value={language}
+              onChange={(e) => setLanguage(e.target.value as 'fr' | 'en')}
+              className="border rounded-lg px-2 py-1.5 text-sm text-black bg-white flex-1"
+            >
+              <option value="fr">{t.home.languageFr}</option>
+              <option value="en">{t.home.languageEn}</option>
+            </select>
+          </div>
+
+          {/* Nav links */}
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              onClick={handleNavClick}
+              className="block py-2 px-3 rounded-lg hover:bg-green-700 transition font-medium"
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            to="/connexion"
+            onClick={handleNavClick}
+            className="flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-green-700 transition font-medium"
+          >
+            <FaUserCircle />
+            {t.nav.connexion}
+          </Link>
+        </nav>
+      )}
+    </header>
+  )
 }
 
-export default Navbar;
+export default Navbar

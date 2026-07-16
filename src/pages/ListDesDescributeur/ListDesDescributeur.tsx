@@ -8,14 +8,14 @@ const distributors: string[] = [
   'Mahima coron',
   'Mahima elig essono',
   'Sino smart',
-  "Ma SARL ydé",
+  'Ma SARL ydé',
   'Ma SARL DLA',
-  "Houriya agribusiness Tchad",
+  'Houriya agribusiness Tchad',
   'Soneco olembé',
   'Boulangerie du peuple',
   'Les stations Neptune',
   'Mear Bastos',
-  "O terroir",
+  'O terroir',
   'Lagon bastos',
   'Lagon kribi',
   'Franco hôtel',
@@ -37,8 +37,8 @@ const ListDesDescributeur: React.FC = () => {
   return (
     <section className="ldd-section">
       <div className="ldd-header">
-        <h2 className="ldd-title text-3xl font-semibold text-center align-center">{t.home.distributorsTitle}</h2>
-        <p className="ldd-subtitle text-3xl font-semibold text-center align-center">{t.home.distributorsText}</p>
+        <h2 className="ldd-title">{t.home.distributorsTitle}</h2>
+        <p className="ldd-subtitle">{t.home.distributorsText}</p>
       </div>
       <div className="ldd-scroll" role="list" aria-label="Liste des distributeurs">
         <div className="ldd-track">

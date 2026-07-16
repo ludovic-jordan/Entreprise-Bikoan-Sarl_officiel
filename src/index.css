@@ -1,32 +1,37 @@
 @import "tailwindcss";
 
-
 html {
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-
 html::-webkit-scrollbar {
   width: 0;
- 
-}.home-card {
+}
+
+/* ── Home cards ─────────────────────────────────────── */
+.home-card {
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(72, 163, 71, 0.12);
-  border-radius: 24px;
-  padding: 28px;
+  border-radius: 20px;
+  padding: 16px;
   box-shadow: 0 16px 50px rgba(15, 23, 42, 0.06);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   animation: fadeInUp 0.75s ease both;
 }
 
-.home-card-hover {
-  background: rgba(255, 255, 255, 0.96);
+@media (min-width: 640px) {
+  .home-card { padding: 22px; border-radius: 24px; }
 }
+@media (min-width: 1024px) {
+  .home-card { padding: 28px; }
+}
+
+.home-card-hover { background: rgba(255, 255, 255, 0.96); }
 
 .home-card:hover,
 .home-card-hover:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
   border-color: rgba(72, 163, 71, 0.2);
 }
@@ -35,28 +40,41 @@ html::-webkit-scrollbar {
   background: linear-gradient(180deg, #f8fff3 0%, #ffffff 100%);
 }
 
+/* ── Home card header ───────────────────────────────── */
 .home-card-header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 18px;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
+/* ── Section titles ─────────────────────────────────── */
 .home-section-title {
-  font-size: 2rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: #1f2937;
+  line-height: 1.3;
+}
+@media (min-width: 640px) {
+  .home-section-title { font-size: 1.6rem; }
+}
+@media (min-width: 1024px) {
+  .home-section-title { font-size: 2rem; }
 }
 
 .home-section-text {
   color: #4b5563;
   line-height: 1.8;
-  margin-bottom: 16px;
-  max-width: 760px;
+  margin-bottom: 14px;
+  font-size: 0.92rem;
+}
+@media (min-width: 640px) {
+  .home-section-text { font-size: 1rem; max-width: 760px; }
 }
 
+/* ── Buttons / links ────────────────────────────────── */
 .home-btn,
 .home-link {
   display: inline-flex;
@@ -65,14 +83,21 @@ html::-webkit-scrollbar {
   background: #22c55e;
   color: #ffffff;
   border: none;
-  padding: 12px 22px;
+  padding: 9px 16px;
   border-radius: 9999px;
+  font-size: 0.85rem;
   font-weight: 700;
-  box-shadow: 0 12px 24px rgba(34, 197, 94, 0.18);
+  box-shadow: 0 8px 18px rgba(34, 197, 94, 0.18);
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   text-decoration: none;
+  white-space: nowrap;
 }
-
+@media (min-width: 640px) {
+  .home-btn, .home-link { padding: 11px 20px; font-size: 0.9rem; }
+}
+@media (min-width: 1024px) {
+  .home-btn, .home-link { padding: 12px 22px; font-size: 1rem; }
+}
 .home-btn:hover,
 .home-link:hover {
   transform: translateY(-2px);
@@ -80,44 +105,45 @@ html::-webkit-scrollbar {
   box-shadow: 0 16px 28px rgba(34, 197, 94, 0.22);
 }
 
+/* ── Why choose grid ────────────────────────────────── */
 .why-choose-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 480px) {
+  .why-choose-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .why-choose-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
 }
 
 .why-choose-item {
   background: #f8fafc;
-  border-radius: 18px;
+  border-radius: 16px;
   border: 1px solid rgba(148, 163, 184, 0.16);
-  padding: 22px;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .why-choose-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 34px rgba(15, 23, 42, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
 }
-
 .why-choose-item h3 {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: #165e26;
 }
-
 .why-choose-item p {
   color: #475569;
   line-height: 1.7;
+  font-size: 0.88rem;
 }
 
+/* ── Fade-in animation ──────────────────────────────── */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-

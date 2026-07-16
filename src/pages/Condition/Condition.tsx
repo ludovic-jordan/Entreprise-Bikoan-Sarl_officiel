@@ -1,30 +1,28 @@
 import React from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 
-const Condition:React.FC = () => {
+const Condition: React.FC = () => {
   const { t } = useLanguage()
 
   return (
-    <div className='items-start text-center shadow-lg rounded-lg h-full w-full'>
-      <h2  className='font-bold text-3xl'>
+    <div className="max-w-3xl mx-auto px-4 py-10">
+      <h2 className="font-bold text-2xl sm:text-3xl text-center text-gray-800 mb-6">
         {t.condition.title}
       </h2>
-      <p>
+      <p className="text-gray-600 mb-6 text-sm sm:text-base leading-relaxed text-center">
         {t.condition.intro}
-      </p> <br />
-      <ol>
-        <li className='font-bold text-lg'>{t.condition.item1Title}</li>
-        <p>
-          {t.condition.item1Text}
-        </p> <br />
-        <li className='font-bold text-lg'>{t.condition.item2Title}</li>
-        <p>
-          {t.condition.item2Text}
-        </p><br />
-        <li className='font-bold text-lg'>{t.condition.item3Title}</li>
-        <p>
-          {t.condition.item3Text}
-        </p>
+      </p>
+      <ol className="flex flex-col gap-6">
+        {[
+          { title: t.condition.item1Title, text: t.condition.item1Text },
+          { title: t.condition.item2Title, text: t.condition.item2Text },
+          { title: t.condition.item3Title, text: t.condition.item3Text },
+        ].map((item, i) => (
+          <li key={i} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h3 className="font-bold text-base sm:text-lg text-gray-800 mb-2">{item.title}</h3>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{item.text}</p>
+          </li>
+        ))}
       </ol>
     </div>
   )

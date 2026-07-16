@@ -33,7 +33,7 @@ const ProduitCard: React.FC<Props> = ({
     const productTitle = language === 'fr' ? titre : titreEn
     const productDescription = language === 'fr' ? ville : villeEn
     return (
-        <div className='flex flex-col bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl hover:scale-[1.015] h-full'>
+        <div className='flex flex-col w-full bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl hover:scale-[1.015] h-full'>
             {/* Carrousel Swiper pour les images */}
             <div className="relative w-full h-[220px] sm:h-[250px] md:h-[230px] xl:h-[230px] overflow-hidden">
                 <Swiper
@@ -67,7 +67,7 @@ const ProduitCard: React.FC<Props> = ({
                     <h2 className="text-lg font-semibold text-gray-800">{productTitle}</h2>
                     <p className="text-sm text-gray-600 font-bold">{productDescription}</p>
                 </div>
-                <p className="text-lg font-bold text-green-600 mt-2"> <IoIosPricetag /> {prix.toLocaleString()} FCFA</p>
+                <p className="flex items-center gap-1 text-lg font-bold text-green-600 mt-2"><IoIosPricetag className="flex-shrink-0" /> {prix.toLocaleString()} FCFA</p>
                
                 <Link to={`/nosproduit/${id}`} className="mt-3 inline-block bg-green-600 text-white text-center px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
                     {t.productCard.view}

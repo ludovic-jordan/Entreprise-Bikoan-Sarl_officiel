@@ -12,38 +12,36 @@ const Hero: React.FC = () => {
   const { t, language } = useLanguage()
 
   return (
-    <div className="relative h-[500px] w-full overflow-hidden">
+    /* Responsive height: shorter on mobile, taller on desktop */
+    <div className="relative h-[320px] sm:h-[420px] md:h-[500px] w-full overflow-hidden">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
-        spaceBetween={30}
+        spaceBetween={0}
         centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
+        autoplay={{ delay: 2800, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation
-        className="absolute inset-0 w-full h-full z-0"
+        className="w-full h-full"
       >
-        {/* Slide principal */}
+        {/* Main slide */}
         <SwiperSlide>
           <div className="relative w-full h-full">
             <img src={hero} alt="Hero" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/50" />
-            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white px-4">
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white px-4 sm:px-8">
               <motion.h1
-                className="text-4xl md:text-5xl font-bold mb-4"
+                className="text-2xl sm:text-4xl md:text-5xl font-bold mb-3 drop-shadow-lg"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: 'easeOut' }}
+                transition={{ duration: 0.7 }}
               >
                 {t.home.heroTitle}
               </motion.h1>
               <motion.p
-                className="text-lg md:text-xl mb-6"
+                className="text-sm sm:text-lg md:text-xl mb-5 max-w-xl drop-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
+                transition={{ duration: 0.7, delay: 0.2 }}
               >
                 {t.home.heroSubtitle}
               </motion.p>
@@ -54,7 +52,7 @@ const Hero: React.FC = () => {
               >
                 <Link
                   to="/nosproduit"
-                  className="bg-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-200 inline-block"
+                  className="bg-green-600 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl font-semibold text-sm sm:text-base hover:bg-green-700 transition duration-200 inline-block shadow-lg"
                 >
                   {t.home.viewMore}
                 </Link>
@@ -63,7 +61,7 @@ const Hero: React.FC = () => {
           </div>
         </SwiperSlide>
 
-        {/* Slides produits */}
+        {/* Product slides */}
         {AnnonceMock.slice(2, 5).map((nosproduit) => (
           <SwiperSlide key={nosproduit.id}>
             <div className="relative w-full h-full">
@@ -73,16 +71,16 @@ const Hero: React.FC = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black/50" />
-              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white px-4">
-                <h1 className="text-3xl md:text-5xl font-bold mb-4">
+              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white px-4 sm:px-8">
+                <h1 className="text-xl sm:text-3xl md:text-5xl font-bold mb-3 drop-shadow-lg">
                   {language === 'fr' ? nosproduit.titre : nosproduit.titreEn}
                 </h1>
-                <p className="text-lg md:text-xl mb-6">
+                <p className="text-sm sm:text-lg md:text-xl mb-5 drop-shadow max-w-lg">
                   {language === 'fr' ? nosproduit.ville : nosproduit.villeEn} — {nosproduit.prix.toLocaleString()} FCFA
                 </p>
                 <Link
                   to={`/nosproduit/${nosproduit.id}`}
-                  className="bg-green-600 px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200"
+                  className="bg-green-600 px-5 py-2.5 rounded-xl text-sm sm:text-base hover:bg-green-700 transition duration-200 font-semibold shadow-lg"
                 >
                   {t.home.viewMore}
                 </Link>
