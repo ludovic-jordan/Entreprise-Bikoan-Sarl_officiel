@@ -22,7 +22,7 @@
 .ldd-track{
   display:flex;
   gap:1rem;
-  animation: ldd-scroll 28s linear infinite;
+  animation: ldd-scroll 5s linear infinite;
 }
 .ldd-scroll:hover .ldd-track{
   animation-play-state: paused;

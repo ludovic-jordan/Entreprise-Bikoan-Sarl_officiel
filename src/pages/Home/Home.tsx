@@ -7,6 +7,8 @@ import ListDesDescributeur from '../ListDesDescributeur/ListDesDescributeur'
 import Entreprise from '../Entreprise/Entreprise'
 import Prepare from '../Prepare/Prepare'
 import { useLanguage } from '../../context/LanguageContext'
+import WhyChooseUsData from '../WhyChooseUs/WhyChooseUs';
+import Statistics from '../Statistics/Statistics'
 
 export const Home: React.FC = () => {
   const { t } = useLanguage()
@@ -14,6 +16,9 @@ export const Home: React.FC = () => {
   return (
     <div className='flex flex-col gap-10'>
       <Hero />
+      <WhyChooseUsData />
+
+      <Statistics />
 
       <div className='flex flex-col gap-14 px-4 pb-10'>
         <section className='home-card home-card-glow'>
