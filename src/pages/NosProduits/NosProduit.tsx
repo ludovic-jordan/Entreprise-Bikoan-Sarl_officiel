@@ -4,18 +4,6 @@ import { AnnonceMock } from '../../lib/Mock'
 import ProduitCard from '../../components/ProduitCards'
 import { useLanguage } from '../../context/LanguageContext'
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1 },
-  },
-}
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } },
-}
-
 const NosProduit: React.FC = () => {
   const { t } = useLanguage()
 
@@ -39,14 +27,14 @@ const NosProduit: React.FC = () => {
         {t.nosproduit.description}
       </motion.p>
 
-      <motion.div
-        className="grid gap-6 sm:grid-cols-2 md:grid-cols-3"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {AnnonceMock.map((a) => (
-          <motion.div key={a.id} variants={cardVariants}>
+      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+        {AnnonceMock.map((a, index) => (
+          <motion.div
+            key={a.id}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: index * 0.08 }}
+          >
             <ProduitCard
               id={a.id}
               titre={a.titre}
@@ -60,7 +48,7 @@ const NosProduit: React.FC = () => {
             />
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }

@@ -8,12 +8,6 @@ type PageProps = {
   children: React.ReactNode
 }
 
-const pageVariants = {
-  initial: { opacity: 0, y: 18 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-  exit: { opacity: 0, y: -12, transition: { duration: 0.25 } },
-}
-
 const Layout: React.FC<PageProps> = ({ children }) => {
   const location = useLocation()
 
@@ -24,10 +18,10 @@ const Layout: React.FC<PageProps> = ({ children }) => {
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
-            variants={pageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.35 }}
           >
             {children}
           </motion.div>
