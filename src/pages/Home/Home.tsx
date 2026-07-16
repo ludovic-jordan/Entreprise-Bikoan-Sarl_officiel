@@ -63,16 +63,20 @@ export const Home: React.FC = () => {
           </div>
           <div className='why-choose-grid'>
             <div className='why-choose-item'>
-              <h3>{t.whyChoose.item1Title}</h3>
-              <p>{t.whyChoose.item1Text}</p>
+              <h3>{t.whyChooseUs.item1Title}</h3>
+              <p>{t.whyChooseUs.item1Desc}</p>
             </div>
             <div className='why-choose-item'>
-              <h3>{t.whyChoose.item2Title}</h3>
-              <p>{t.whyChoose.item2Text}</p>
+              <h3>{t.whyChooseUs.item2Title}</h3>
+              <p>{t.whyChooseUs.item2Desc}</p>
             </div>
             <div className='why-choose-item'>
-              <h3>{t.whyChoose.item3Title}</h3>
-              <p>{t.whyChoose.item3Text}</p>
+              <h3>{t.whyChooseUs.item3Title}</h3>
+              <p>{t.whyChooseUs.item3Desc}</p>
+            </div>
+            <div className='why-choose-item'>
+              <h3>{t.whyChooseUs.item4Title}</h3>
+              <p>{t.whyChooseUs.item4Desc}</p>
             </div>
           </div>
         </section>

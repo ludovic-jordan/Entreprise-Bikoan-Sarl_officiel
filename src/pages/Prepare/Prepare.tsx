@@ -18,7 +18,7 @@ const Prepare: React.FC = () => {
       </div>
       <div className="prep-row">
         <div className="prep-card">
-          <h3 className="text-2xl font-semibold text-center">{t.prepare.chipsTitle}</h3>
+      <h3 className="text-2xl font-semibold text-center">{t.prepare.chipsTitle}</h3>
           <p className="prep-desc">{t.prepare.chipsDesc}</p>
           <div className="prep-media">
             {VIDEO_CHIPS_URL ? (

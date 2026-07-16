@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
                     <div className='flex gap-2 items-center'>
                         <a
                           href={
-                            `mailto:fofeachille@icloud.com?subject=${encodeURIComponent('Demande de contact')}&body=${encodeURIComponent("Bonjour BIKOAN Team,\n\nJe souhaite vous contacter au sujet d'une commande de chips ou de sésame. Merci de me répondre rapidement.\n\nNom :\nTéléphone :\nMessage :\n")}`
+                            `mailto:bikoansarl@gmail.com?subject=${encodeURIComponent('Demande de contact')}&body=${encodeURIComponent("Bonjour BIKOAN Team,\n\nJe souhaite vous contacter au sujet d'une commande de chips ou de sésame. Merci de me répondre rapidement.\n\nNom :\nTéléphone :\nMessage :\n")}`
                           }
                           className='inline-flex items-center gap-2 hover:text-green-300 transition duration-200'
                         >

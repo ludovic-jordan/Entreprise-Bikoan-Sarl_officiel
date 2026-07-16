@@ -41,7 +41,8 @@ export default function WhyChooseUsData() {
 
                     {whyChooseUST.map((item, index) => {
 
-                        const Icon = item.icon;
+                        const Icon = item.icon
+                        ;
                         const title = language === 'fr' ? item.titleFr : item.titleEn;
                         const description = language === 'fr' ? item.descriptionFr : item.descriptionEn;
 

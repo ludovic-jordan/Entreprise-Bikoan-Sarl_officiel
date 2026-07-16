@@ -45,6 +45,7 @@ export const translations = {
       notFound: 'Produit non trouvé',
       additionalInfo: 'Informations supplémentaires',
       tel: 'Tel',
+      phone: '+237 6 97 45 38 29',
       contactPhone: 'Tél :',
       contactEmailLabel: 'Contactez-nous par email :',
       infoTitle: 'Informations supplémentaires',
@@ -90,6 +91,11 @@ export const translations = {
         ],
       },
       stepPrefix: 'Étape',
+      chipsTitle: 'Nos Chips',
+      chipsDesc: 'Découvrez comment nos chips croustillantes sont préparées avec soin.',
+      sesameTitle: 'Notre Sésame',
+      sesameDesc: 'Apprenez comment nos croquettes de sésame sont fabriquées.',
+      noVideoConfigured: 'Vidéo bientôt disponible.',
     },
     app: {
       pageNotFound: 'Page non trouvée',
@@ -174,14 +180,7 @@ export const translations = {
       title: 'Mentions légales',
       text: 'Les informations présentées sur ce site sont fournies à titre informatif. Toute reproduction ou diffusion est interdite sans autorisation.',
     },
-    whyChoose: {
-      item1Title: 'Saveur unique',
-      item1Text: 'Des recettes traditionnelles pour un goût irrésistible.',
-      item2Title: 'Distribution fiable',
-      item2Text: 'Notre réseau de distributeurs assure une livraison rapide et régulière.',
-      item3Title: 'Qualité constante',
-      item3Text: 'Chaque lot est préparé avec des ingrédients sélectionnés.',
-    },
+
     nosproduit: {
       description: 'Découvrez nos chips croustillantes et nos graines de sésame premium, préparées avec soin pour un goût authentique.',
       homeIntro: 'Découvrez notre gamme de chips croustillantes et de graines de sésame soigneusement sélectionnées, prêtes à régaler vos clients.',
@@ -197,16 +196,6 @@ export const translations = {
     },
     distributeurs: {
       title: 'Nos Distributeurs',
-    },
-    productDetail: {
-      phone: '691 185 815',
-    },
-    prepare: {
-      chipsTitle: 'Chips',
-      sesameTitle: 'Sésame',
-      noVideoConfigured: 'Aucune vidéo configurée.',
-      sesameDesc: 'Une vidéo explicative du traitement et de la torréfaction du sésame pour un profil de saveur premium.',
-      chipsDesc: 'Une vidéo de la préparation des chips à partir du plantain et de la pomme de terre.',
     },
     whyChooseUs: {
       sectionTitle: 'Pourquoi nous choisir ?',
@@ -263,6 +252,7 @@ export const translations = {
       notFound: 'Product not found',
       additionalInfo: 'Additional information',
       tel: 'Phone',
+      phone: '+237 6 97 45 38 29',
       contactPhone: 'Phone:',
       contactEmailLabel: 'Contact us via email:',
       infoTitle: 'Additional information',
@@ -308,6 +298,11 @@ export const translations = {
         ],
       },
       stepPrefix: 'Step',
+      chipsTitle: 'Our Chips',
+      chipsDesc: 'Discover how our crispy chips are carefully prepared.',
+      sesameTitle: 'Our Sesame',
+      sesameDesc: 'Learn how our sesame croquettes are made.',
+      noVideoConfigured: 'Video coming soon.',
     },
     app: {
       pageNotFound: 'Page not found',
@@ -392,14 +387,6 @@ export const translations = {
       title: 'Legal notice',
       text: 'The information on this site is provided for informational purposes only. Reproduction or distribution is prohibited without authorization.',
     },
-    whyChoose: {
-      item1Title: 'Unique flavor',
-      item1Text: 'Traditional recipes for an irresistible taste.',
-      item2Title: 'Reliable distribution',
-      item2Text: 'Our network of distributors ensures fast and regular delivery.',
-      item3Title: 'Consistent quality',
-      item3Text: 'Each batch is prepared with carefully selected ingredients.',
-    },
     nosproduit: {
       description: 'Discover our crispy chips and premium sesame seeds, prepared with care for authentic flavor.',
       homeIntro: 'Discover our range of crispy chips and carefully selected sesame seeds, ready to delight your customers.',
@@ -415,16 +402,6 @@ export const translations = {
     },
     distributeurs: {
       title: 'Our Distributors',
-    },
-    productDetail: {
-      phone: '691 185 815',
-    },
-    prepare: {
-      chipsTitle: 'Chips',
-      sesameTitle: 'Sesame',
-      noVideoConfigured: 'No video configured.',
-      sesameDesc: 'An explanatory video of sesame processing and roasting for a premium flavor profile.',
-      chipsDesc: 'A video showing the preparation of chips from plantain and potato.',
     },
     whyChooseUs: {
       sectionTitle: 'Why choose us?',

@@ -1,34 +1,67 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 
-const connexion:React.FC = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+const Connexion: React.FC = () => {
   const { t } = useLanguage()
 
   return (
-    <div className='bg-white flex flex-col items-center py-8 px-4'>
-        <h2 className='text-3xl font-bold text-green-600 italic shadow-lg w-full max-w-2xl text-center p-6'>
-            {t.connexion.title}
-        </h2>
-        <form action="post" className='w-full flex justify-center'>
-            <div className='w-full max-w-md flex flex-col shadow-lg rounded-3xl p-6 bg-white'>
-                <label htmlFor="email" className='font-bold italic mb-1'>{t.connexion.email}</label>
-                <input type="email" id="email" required placeholder={t.connexion.emailPlaceholder} className='border border-gray-300 rounded-lg h-10 w-full p-3 mb-4'/>
+    <div className="min-h-screen bg-gradient-to-b from-white to-green-50 flex flex-col items-center py-12 px-4">
+      <motion.h2
+        className="text-3xl font-bold text-green-600 italic text-center mb-8"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55 }}
+      >
+        {t.connexion.title}
+      </motion.h2>
 
-                <label htmlFor="password" className='font-bold italic mb-1'>{t.connexion.password}</label>
-                <input type="password" id="password" required placeholder={t.connexion.passwordPlaceholder} className='border border-gray-300 rounded-lg h-10 w-full p-3 mb-4'/>
+      <motion.form
+        action="post"
+        className="w-full max-w-md flex flex-col shadow-xl rounded-3xl p-8 bg-white border border-gray-100"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, delay: 0.1 }}
+      >
+        <label htmlFor="email" className="font-bold italic mb-1 text-sm">{t.connexion.email}</label>
+        <input
+          type="email"
+          id="email"
+          required
+          placeholder={t.connexion.emailPlaceholder}
+          className="border border-gray-300 rounded-xl h-11 px-4 mb-5 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+        />
 
-                <button type="button" className='bg-green-600 text-white font-bold shadow-lg rounded-lg py-2 w-full hover:cursor-pointer hover:bg-green-800'>{t.connexion.login}</button>
+        <label htmlFor="password" className="font-bold italic mb-1 text-sm">{t.connexion.password}</label>
+        <input
+          type="password"
+          id="password"
+          required
+          placeholder={t.connexion.passwordPlaceholder}
+          className="border border-gray-300 rounded-xl h-11 px-4 mb-6 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+        />
 
-            <h4 className='mt-4 text-center'>
-                {t.connexion.noAccount} <Link to={`/inscription`}> <span className='font-bold  italic hover:underline hover:text-green-600'>{t.connexion.signup}</span></Link>
-            </h4>
-             </div>
-        </form>
-        <h5 className='items-center text-center mt-4'>{t.connexion.thanks}</h5>
+        <motion.button
+          type="button"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.97 }}
+          className="bg-green-600 text-white font-bold rounded-xl py-3 w-full hover:bg-green-800 transition duration-200 cursor-pointer"
+        >
+          {t.connexion.login}
+        </motion.button>
+
+        <p className="mt-5 text-center text-sm">
+          {t.connexion.noAccount}{' '}
+          <Link to="/inscription">
+            <span className="font-bold italic hover:underline hover:text-green-600 transition">{t.connexion.signup}</span>
+          </Link>
+        </p>
+      </motion.form>
+
+      <p className="text-center text-sm text-gray-500 mt-4 italic">{t.connexion.thanks}</p>
     </div>
   )
 }
 
-export default connexion
+export default Connexion
