@@ -1,5 +1,5 @@
 import {
-    FiLeaf,
+    FiHeart,
     FiCheckCircle,
     FiTruck,
     FiAward
@@ -8,7 +8,7 @@ import {
 
 export const whyChooseUST = [
     {
-        icon: FiLeaf,
+        icon: FiHeart,
         titleFr: "Produits Naturels",
         titleEn: "Natural Products",
         descriptionFr:
