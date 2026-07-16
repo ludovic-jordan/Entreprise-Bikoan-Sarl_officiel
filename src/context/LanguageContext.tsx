@@ -45,7 +45,7 @@ export const translations = {
       notFound: 'Produit non trouvé',
       additionalInfo: 'Informations supplémentaires',
       tel: 'Tel',
-      phone: '+237 6 97 45 38 29',
+      phone: '+237 695 64 01 44',
       contactPhone: 'Tél :',
       contactEmailLabel: 'Contactez-nous par email :',
       infoTitle: 'Informations supplémentaires',

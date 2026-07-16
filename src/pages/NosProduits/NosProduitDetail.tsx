@@ -88,7 +88,7 @@ const NosProduitDetail = () => {
           <p className="font-semibold text-gray-700">
             {t.productDetail.contactEmailLabel}{' '}
             <a
-              href="mailto:fofeachille@icloud.com"
+              href="mailto:bikoansarl@gmail.com.com"
               className="text-green-600 hover:underline"
             >
               bikoansarl@gmail.com

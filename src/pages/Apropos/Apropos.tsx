@@ -56,9 +56,9 @@ const Apropos: React.FC = () => {
           }}
         >
           {[
-            { emoji: '🌿', label: t.whyChooseUs.item1Title, desc: t.whyChooseUs.item1Desc },
-            { emoji: '✅', label: t.whyChooseUs.item2Title, desc: t.whyChooseUs.item2Desc },
-            { emoji: '🚚', label: t.whyChooseUs.item3Title, desc: t.whyChooseUs.item3Desc },
+            { emoji: '', label: t.whyChooseUs.item1Title, desc: t.whyChooseUs.item1Desc },
+            { emoji: '', label: t.whyChooseUs.item2Title, desc: t.whyChooseUs.item2Desc },
+            { emoji: '', label: t.whyChooseUs.item3Title, desc: t.whyChooseUs.item3Desc },
           ].map((item, i) => (
             <motion.div
               key={i}
