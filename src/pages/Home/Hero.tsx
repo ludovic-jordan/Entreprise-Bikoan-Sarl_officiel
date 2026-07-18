@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 import hero from '../../assets/Entreprise_image/m2.jpeg'
@@ -13,14 +13,13 @@ const Hero: React.FC = () => {
 
   return (
     /* Responsive height: shorter on mobile, taller on desktop */
-    <div className="relative h-[320px] sm:h-[420px] md:h-[500px] w-full overflow-hidden">
+    <div className="relative -mt-20 h-[320px] sm:h-[420px] md:h-[500px] w-full overflow-hidden">
       <Swiper
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay, Pagination]}
         spaceBetween={0}
         centeredSlides={true}
         autoplay={{ delay: 2800, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        navigation
         className="w-full h-full"
       >
         {/* Main slide */}

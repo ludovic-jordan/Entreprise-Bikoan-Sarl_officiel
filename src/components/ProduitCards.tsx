@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoIosPricetag } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css'
 import { useLanguage } from '../context/LanguageContext'
@@ -37,18 +37,16 @@ const ProduitCard: React.FC<Props> = ({
             {/* Carrousel Swiper pour les images */}
             <div className="relative w-full h-[220px] sm:h-[250px] md:h-[230px] xl:h-[230px] overflow-hidden">
                 <Swiper
-                    modules={[Autoplay, Navigation, Pagination]}
-                     spaceBetween={30}
+                    modules={[Autoplay, Pagination]}
+                    spaceBetween={30}
                     centeredSlides={true}
                     autoplay={{
                       delay: 3000,
                       disableOnInteraction: false,
                       pauseOnMouseEnter: false,
                     }}
-                    navigation
                     pagination={{ clickable: true }}
                     loop
-                   
                     className="w-full h-full"
                 >
                     {images.map((img, index) => (

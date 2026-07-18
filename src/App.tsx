@@ -2,8 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import "./index.css"
 import "./App.css"
 import { LanguageProvider, useLanguage } from './context/LanguageContext'
-// import Confidentialite from './pages/Confidentialite/confidentialite'
 import Layout from './Layout/layout'
+import SplashScreen from './components/SplashScreen'
+import ScrollToTop from './components/ScrollToTop'
 import Apropos from './pages/Apropos/Apropos'
 import Contact from './pages/Contact/Contact'
 import Home from './pages/Home/Home'
@@ -27,29 +28,30 @@ function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
+        {/* Splash screen — visible uniquement au tout premier chargement */}
+        <SplashScreen />
+        {/* Bouton scroll to top — visible sur toutes les pages */}
+        <ScrollToTop />
         <Layout>
           <Routes>
-        {/* <Route path="/" element={<Confidentialite />} />
-        <Route path="/confidentialite" element={<Confidentialite />} /> */}
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/inscription" element={<Inscription />} />
-        <Route path="/connexion" element={<Connexion />} />
-        <Route path="/nosproduit" element={<NosProduit />} />
-        <Route path="/nosproduit/:id" element={<NosProduitDetail />} />
-        <Route path="/distributeurs" element={<ListDesDescributeur />} />
-        <Route path="/entreprise" element={<Entreprise />} />
-        <Route path="/preparation" element={<Prepare />} />
-        <Route path="/apropos" element={<Apropos />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/condition" element={<Condition />} />
-        <Route path="/confidentialite" element={<Confidentialite />} />
-        <Route path="/mention" element={<Mention />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-      
-     </Layout>
-    </BrowserRouter>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/inscription" element={<Inscription />} />
+            <Route path="/connexion" element={<Connexion />} />
+            <Route path="/nosproduit" element={<NosProduit />} />
+            <Route path="/nosproduit/:id" element={<NosProduitDetail />} />
+            <Route path="/distributeurs" element={<ListDesDescributeur />} />
+            <Route path="/entreprise" element={<Entreprise />} />
+            <Route path="/preparation" element={<Prepare />} />
+            <Route path="/apropos" element={<Apropos />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/condition" element={<Condition />} />
+            <Route path="/confidentialite" element={<Confidentialite />} />
+            <Route path="/mention" element={<Mention />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </LanguageProvider>
   )
 }
