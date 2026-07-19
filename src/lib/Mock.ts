@@ -20,6 +20,12 @@ import s3 from '../assets/Entreprise_image/sesame caramel/m4.jpeg'
 import s4 from '../assets/Entreprise_image/sesame caramel/m7.jpeg'
 import s5 from '../assets/Entreprise_image/sesame caramel/m9.jpeg'
 
+//sésame complet
+import sc1 from '../assets/Entreprise_image/sesame complet/miel et banane plaintaion.jpeg'
+import sc2 from '../assets/Entreprise_image/sesame complet/sesame blanc.jpeg'
+import sc3 from '../assets/Entreprise_image/sesame complet/sesame complet.jpeg'
+import sc4 from '../assets/Entreprise_image/sesame complet/sesame sucre.jpeg'
+
 //caramel
 import c1 from '../assets/Entreprise_image/caramel/WhatsApp Image 2026-07-15 at 11.19.57.jpeg'
 import c2 from '../assets/Entreprise_image/caramel/WhatsApp Image 2026-07-15 at 11.19.57 (1).jpeg'
@@ -53,9 +59,9 @@ export const AnnonceMock: Annonce[] = [
     {
         id: 1,
         titre: "Chips Murs 75g",
-        titreEn: "Sweet sesame",
+        titreEn: "Chips Murs",
         ville: "A la vanille et au lait",
-        villeEn: "Well roasted sesame rich in vitamin A",
+        villeEn: "Well roasted chips rich in vitamin A",
         prix: 500,
         images: [cm1, cm2, cm3, cm4, cm5, cm6],
         text: "Très appétissant à déguster",
@@ -78,10 +84,10 @@ export const AnnonceMock: Annonce[] = [
         id: 3,
         titre: "Chips Non Murs 75g",
         titreEn: "Salted sesame",
-        ville: "sésame salé et riche en vitamine B12",
+        ville: "sésame au miel et riche en vitamine B12",
         villeEn: "Salted sesame rich in vitamin B12",
-        prix: 500,
-        images: [nm1, nm2, nm3],
+        prix: 1500,
+        images: [ nm3],
         text: "Riche en vitamine D",
         textEn: "Rich in vitamin D",
         email: "fofeachille@icloud.com"
@@ -101,12 +107,12 @@ export const AnnonceMock: Annonce[] = [
     {
         id: 5,
         titre: "Caramel D'Arachide",
-        titreEn: "Sweet sesame",
-        ville: "Caramel sucré et riche en vitamine A",
-        villeEn: "Sweet sesame rich in vitamin A",
+        titreEn: "Sweet Groundnut",
+        ville: "Caramel sucré et riche en vitamine A ",
+        villeEn: "Sweet groundnut rich in vitamin A",
         prix: 1000,
         images: [c1, c2, c3],
-        text: "Qualité en protéine et en vitamine A",
+        text: "Qualité en protéine et en vitamine A 1000FCFA - demi-litre, 2000 - un litre",
         textEn: "Quality in protein and vitamin A",
         email: "fofeachille@icloud.com"
     },
@@ -156,6 +162,42 @@ export const AnnonceMock: Annonce[] = [
         images: [p1, p2],
         text: "Bonne et riche en protéine",
         textEn: "Good and rich in protein",
+        email: "fofeachille@icloud.com"
+    },
+    {
+        id: 10,
+        titre: "Chips Epicée 75g",
+        titreEn: "Chips Epicée",
+        ville: "chips et les epice local",
+        villeEn: "chips locally hots",
+        prix: 500,
+        images: [nm2, nm1],
+        text: "Très appétissant à déguster",
+        textEn: "Very tasty to enjoy",
+        email: "fofeachille@icloud.com"
+    },
+    {
+        id: 11,
+        titre: "Caramel",
+        titreEn: "Sweet caramel",
+        ville: "Arachide enrobees de caramel et riche en protéine 70g",
+        villeEn: "Sweet caramel rich in protein and vitamin C",
+        prix: 300,
+        images: [p1],
+        text: "Bonne et riche en protéine",
+        textEn: "Good and rich in protein",
+        email: "fofeachille@icloud.com"
+    },
+    {
+        id: 12,
+        titre: "Krok Sésaho complet 100g",
+        titreEn: "High quality Sésame",
+        ville: "sésame tres bon en varieté",
+        villeEn: "High quality chips rich in protein",
+        prix: 1500,
+        images: [sc3, sc2, sc1, sc4],
+        text: "Krok Sésame banane plantain \n\n Krok Sésame sucre\n\n \n\nKrok Sésame Banane Plantain\n\n \n\n Sésame Gammes des saveurs\n\n",
+        textEn: "Good and rich in vitamins and protein",
         email: "fofeachille@icloud.com"
     },
     

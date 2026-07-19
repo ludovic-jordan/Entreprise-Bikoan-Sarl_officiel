@@ -178,11 +178,11 @@ export const translations = {
     },
     mention: {
       title: 'Mentions légales',
-      text: "BIKOAN SARL — Entreprise camerounaise de fabrication de snacks artisanaux. Les informations présentées sur ce site sont fournies à titre informatif. Toute reproduction ou diffusion est interdite sans autorisation préalable de BIKOAN SARL.",
+      text: "BIKOAN SARL Entreprise camerounaise de fabrication de snacks artisanaux. Les informations présentées sur ce site sont fournies à titre informatif. Toute reproduction ou diffusion est interdite sans autorisation préalable de BIKOAN SARL.",
     },
     nosproduit: {
-      description: 'Découvrez nos chips croustillantes et nos croquettes de sésame premium, préparées avec soin pour un goût authentique.',
-      homeIntro: "Explorez notre gamme de chips artisanales et de croquettes de sésame soigneusement sélectionnées, prêtes à régaler vos clients.",
+      description: 'Découvrez les produits de la marque bikoan croustillants, préparées avec soin pour un goût authentique.',
+      homeIntro: "Explorez notre artisanales soigneusement sélectionnées, prêtes à régaler vos clients.",
     },
     entreprise: {
       introText: "BIKOAN SARL est une entreprise locale engagée à produire des chips et des croquettes de sésame de première qualité. Notre équipe sélectionne des ingrédients premium et assure une distribution fiable à travers tout le pays.",

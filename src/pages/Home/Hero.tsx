@@ -61,11 +61,11 @@ const Hero: React.FC = () => {
         </SwiperSlide>
 
         {/* Product slides */}
-        {AnnonceMock.slice(2, 5).map((nosproduit) => (
+        {AnnonceMock.slice(1, 5).map((nosproduit) => (
           <SwiperSlide key={nosproduit.id}>
             <div className="relative w-full h-full">
               <img
-                src={nosproduit.images[0]}
+                src={nosproduit.images[1]}
                 alt={nosproduit.titre}
                 className="w-full h-full object-cover"
               />
