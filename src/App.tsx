@@ -18,6 +18,9 @@ import Confidentialite from './pages/Confidentialite/confidentialite'
 import Mention from './pages/Mention/Mention'
 import Inscription from './Inscription/Inscription'
 import Connexion from './pages/Connexion/Connexion'
+import { CartProvider } from './context/CartContext'
+import ShoppingCart from './components/ShoppingCart'
+import { FavoritesProvider } from './context/FavoritesContext'
 
 const PageNotFound = () => {
   const { t } = useLanguage()
@@ -28,10 +31,13 @@ function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
-        {/* Splash screen — visible uniquement au tout premier chargement */}
+        <CartProvider>
+        <FavoritesProvider>
+        {/* Splash screen - visible uniquement au tout premier chargement */}
         <SplashScreen />
-        {/* Bouton scroll to top — visible sur toutes les pages */}
+        {/* Bouton scroll to top - visible sur toutes les pages */}
         <ScrollToTop />
+        <ShoppingCart />
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -51,6 +57,8 @@ function App() {
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Layout>
+        </FavoritesProvider>
+        </CartProvider>
       </BrowserRouter>
     </LanguageProvider>
   )
