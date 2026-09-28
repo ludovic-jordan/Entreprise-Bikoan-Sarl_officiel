@@ -160,7 +160,7 @@ export const AnnonceMock: Annonce[] = [
         villeEn: "Sweet chips rich in protein and vitamin C",
         prix: 300,
         images: [p1, p2],
-        text: "Bonne et riche en protéine",
+        text: "Bonne et riche en protéines",
         textEn: "Good and rich in protein",
         email: "fofeachille@icloud.com"
     },

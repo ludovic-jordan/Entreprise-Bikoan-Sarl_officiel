@@ -1,41 +1,67 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../context/LanguageContext'
-
-// ─── Remplace par ton Form ID Formspree ───────────────────────
-// 1. Va sur https://formspree.io → New Form → "Inscription Bikoan"
-// 2. Copie l'ID et remplace ci-dessous
-const FORMSPREE_ID = 'xojgddpy'
-// ──────────────────────────────────────────────────────────────
+import { API_URL, saveAuthUser } from '../lib/auth'
+import { useNavigate } from 'react-router-dom'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const Inscription: React.FC = () => {
   const { t } = useLanguage()
+  const navigate = useNavigate()
   const [status, setStatus] = useState<Status>('idle')
+  const [errorMessage, setErrorMessage] = useState<string>('')
+
+  // 1. Gestion des états des champs pour maîtriser l'envoi JSON
+  const [formData, setFormData] = useState({
+    full_name: '',
+    email: '',
+    password: '',
+    role: '' // Stockera "Agent" ou "Entrepreneur"
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('loading')
-
-    const formData = new FormData(e.currentTarget)
+    setErrorMessage('')
 
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      // 2. Appel vers ton serveur PHP local (port 8000)
+      const res = await fetch(`${API_URL}?action=register`, {
         method: 'POST',
-        body: formData,
-        headers: { Accept: 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json' 
+        },
+        body: JSON.stringify(formData),
       })
-      if (res.ok) {
+      
+      const data = await res.json()
+
+      if (res.ok && data.status === 'success') {
+        saveAuthUser(data.user)
         setStatus('success')
+        // Réinitialisation du formulaire
+        setFormData({ full_name: '', email: '', password: '', role: '' })
+        setTimeout(() => navigate('/home'), 700)
       } else {
-        setStatus('success')
+        setStatus('error')
+        setErrorMessage(data.message || 'Une erreur est survenue lors de l\'inscription.')
       }
-      e.currentTarget.reset()
-    } catch {
-      setStatus('success')
+    } catch (err) {
+      console.error(err)
+      setStatus('error')
+      setErrorMessage('Impossible de contacter le serveur backend.')
     }
 
+    // Repasser à l'état initial après 5 secondes pour effacer les messages
     setTimeout(() => setStatus('idle'), 5000)
   }
 
@@ -60,7 +86,8 @@ const Inscription: React.FC = () => {
         {/* Nom */}
         <label htmlFor="name" className="font-bold italic mb-1 text-sm">{t.inscription.name}</label>
         <input
-          type="text" id="name" name="Nom" required
+          type="text" id="name" name="full_name" required
+          value={formData.full_name} onChange={handleChange}
           placeholder={t.inscription.namePlaceholder}
           className="border border-gray-300 rounded-xl h-11 px-4 mb-4 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
         />
@@ -68,7 +95,8 @@ const Inscription: React.FC = () => {
         {/* Email */}
         <label htmlFor="email" className="font-bold italic mb-1 text-sm">{t.inscription.email}</label>
         <input
-          type="email" id="email" name="Email" required
+          type="email" id="email" name="email" required
+          value={formData.email} onChange={handleChange}
           placeholder={t.inscription.emailPlaceholder}
           className="border border-gray-300 rounded-xl h-11 px-4 mb-4 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
         />
@@ -76,7 +104,8 @@ const Inscription: React.FC = () => {
         {/* Mot de passe */}
         <label htmlFor="password" className="font-bold italic mb-1 text-sm">{t.inscription.password}</label>
         <input
-          type="password" id="password" name="Mot de passe" required
+          type="password" id="password" name="password" required
+          value={formData.password} onChange={handleChange}
           placeholder={t.inscription.passwordPlaceholder}
           className="border border-gray-300 hover:border-green-400 rounded-xl h-11 px-4 mb-4 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
         />
@@ -84,7 +113,8 @@ const Inscription: React.FC = () => {
         {/* Rôle */}
         <label htmlFor="role" className="font-bold italic mb-1 text-sm">{t.inscription.role}</label>
         <select
-          id="role" name="Rôle"
+          id="role" name="role" required
+          value={formData.role} onChange={handleChange}
           className="border border-gray-300 rounded-xl h-11 px-3 mb-6 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
         >
           <option value="">{t.inscription.selectRole}</option>
@@ -103,10 +133,18 @@ const Inscription: React.FC = () => {
           {status === 'loading' ? 'Envoi en cours...' : t.inscription.signup}
         </motion.button>
 
+        {/* Messages de retour à l'utilisateur */}
         {status === 'success' && (
           <motion.p className="text-center text-green-600 font-semibold mt-4"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            Inscription envoyée avec succès !
+            Inscription réussie en base de données !
+          </motion.p>
+        )}
+
+        {status === 'error' && (
+          <motion.p className="text-center text-red-600 font-semibold mt-4"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            {errorMessage}
           </motion.p>
         )}
       </motion.form>

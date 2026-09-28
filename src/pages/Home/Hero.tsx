@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
                   {language === 'fr' ? nosproduit.titre : nosproduit.titreEn}
                 </h1>
                 <p className="text-sm sm:text-lg md:text-xl mb-5 drop-shadow max-w-lg">
-                  {language === 'fr' ? nosproduit.ville : nosproduit.villeEn} — {nosproduit.prix.toLocaleString()} FCFA
+                  {language === 'fr' ? nosproduit.ville : nosproduit.villeEn} - {nosproduit.prix.toLocaleString()} FCFA
                 </p>
                 <Link
                   to={`/nosproduit/${nosproduit.id}`}

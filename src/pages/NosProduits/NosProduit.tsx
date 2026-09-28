@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { AnnonceMock } from '../../lib/Mock'
 import ProduitCard from '../../components/ProduitCards'
@@ -6,6 +6,7 @@ import { useLanguage } from '../../context/LanguageContext'
 
 const NosProduit: React.FC = () => {
   const { t } = useLanguage()
+  const products = useMemo(() => [...AnnonceMock].sort(() => Math.random() - 0.5), [])
 
   return (
     <div className="px-4 py-10 max-w-7xl mx-auto">
@@ -28,7 +29,7 @@ const NosProduit: React.FC = () => {
       </motion.p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        {AnnonceMock.map((a, index) => (
+        {products.map((a, index) => (
           <motion.div
             key={a.id}
             className="flex h-full"

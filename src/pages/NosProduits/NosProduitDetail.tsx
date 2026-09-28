@@ -32,7 +32,7 @@ const NosProduitDetail = () => {
           pagination={{ clickable: true }}
           centeredSlides={true}
           autoplay={{ delay: 3000, disableOnInteraction: true, pauseOnMouseEnter: true }}
-          loop
+          loop={a.images.length > 1}
           className="w-full h-64 sm:h-72 md:h-80 rounded-xl overflow-hidden"
         >
           {a.images.map((img: string, index: number) => (

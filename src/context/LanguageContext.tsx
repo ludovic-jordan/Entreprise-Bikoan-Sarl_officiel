@@ -34,8 +34,9 @@ export const translations = {
       whyChooseTitle: 'Pourquoi nous choisir ?',
       localisationTitle: 'Notre Localisation',
       viewMore: 'Voir plus',
-      addressHeadline: 'Notre adresse — utilisez cette localisation pour nous trouver',
+      addressHeadline: 'Notre adresse - utilisez cette localisation pour nous trouver',
     },
+    statistics: { eyebrow: 'BIKOAN EN CHIFFRES', title: 'Notre croissance parle pour nous', description: 'Grâce à la confiance de nos clients et partenaires, nous développons notre activité tout en maintenant notre engagement envers la qualité.', labels: ['Produits', 'Clients satisfaits', 'Revendeurs', "Années d’expérience"] },
     productCard: {
       view: 'Voir le produit',
       priceLabel: 'FCFA',
@@ -51,7 +52,7 @@ export const translations = {
       infoTitle: 'Informations supplémentaires',
     },
     localisation: {
-      title: 'Entreprise Bikoan Sarl — Localisation',
+      title: 'Entreprise Bikoan Sarl - Localisation',
     },
     prepare: {
       chips: {
@@ -244,8 +245,9 @@ export const translations = {
       whyChooseTitle: 'Why choose us?',
       localisationTitle: 'Our Location',
       viewMore: 'See more',
-      addressHeadline: 'Our address — use this location to find us',
+      addressHeadline: 'Our address - use this location to find us',
     },
+    statistics: { eyebrow: 'BIKOAN IN NUMBERS', title: 'Our growth speaks for itself', description: 'Thanks to the trust of our customers and partners, we continue to grow while maintaining our commitment to quality.', labels: ['Products', 'Satisfied customers', 'Resellers', 'Years of experience'] },
     productCard: {
       view: 'View product',
       priceLabel: 'FCFA',
@@ -261,7 +263,7 @@ export const translations = {
       infoTitle: 'Additional information',
     },
     localisation: {
-      title: 'Bikoan SARL — Location',
+      title: 'Bikoan SARL - Location',
     },
     prepare: {
       chips: {
@@ -388,7 +390,7 @@ export const translations = {
     },
     mention: {
       title: 'Legal Notice',
-      text: 'BIKOAN SARL — Cameroonian artisanal snack manufacturer. The information on this site is provided for informational purposes only. Any reproduction or distribution is prohibited without prior written authorisation from BIKOAN SARL.',
+      text: 'BIKOAN SARL - Cameroonian artisanal snack manufacturer. The information on this site is provided for informational purposes only. Any reproduction or distribution is prohibited without prior written authorisation from BIKOAN SARL.',
     },
     nosproduit: {
       description: 'Discover our crispy chips and premium sesame croquettes, carefully prepared for an authentic taste.',
@@ -431,11 +433,12 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined)
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<SupportedLanguage>('fr')
+  const [language, setLanguage] = useState<SupportedLanguage>(() => (localStorage.getItem('bikoan_language') as SupportedLanguage) || 'fr')
+  const changeLanguage = (next: SupportedLanguage) => { setLanguage(next); localStorage.setItem('bikoan_language', next) }
   const t = useMemo(() => translations[language], [language])
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage: changeLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   )
